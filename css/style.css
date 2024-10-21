@@ -1,0 +1,206 @@
+.default-width{width: 1200px;} // 기본 넓이
+.skip{width: 100%;}       
+.skip a{width:100%; height:30px; line-height:30px; background:#333;color:#fff;text-align:center;position:fixed; top:-30px;left:0;z-index:99999;}
+.skip a:focus	{ top:0; }
+
+/* header */
+.btn-menu-div{
+  display: none;
+}
+.main-header{
+  background-color: transparent;
+  border-bottom: 1px solid #fff;
+  z-index: 9999;
+  transition: .3s;
+}
+.main-header.scrolled{
+  background-color: var(--white-color);
+  border-bottom: 1px solid #d9d9d9;
+}
+.main-header.scrolled .trans-white-color{
+  color: var(--default-color);
+}
+.header-logo-img{
+  width: 180px;
+}
+.sub-menu{
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 140px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  background-color: var(--white-color); 
+  z-index: 99;
+}
+.lang-menu{
+  top: 100%;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 100px;
+  text-align: center;
+  opacity: 0;
+  visibility: hidden;
+  transition: .3s;
+  background-color: var(--white-color); 
+}
+.btn-lang:hover .lang-menu{
+  opacity: 1;
+  visibility: visible;
+}
+.btn-lang:focus .lang-menu{
+  opacity: 1;
+  visibility: visible;
+}
+.main-menu-li:focus .sub-menu{
+  opacity: 1;
+  visibility: visible;
+}
+.main-menu-li:hover .sub-menu{
+  opacity: 1;
+  visibility: visible;
+}
+.sub-menu li:hover, .lang-menu li:hover{
+  background-color: var(--theme-color);
+  color: var(--white-color);
+}
+.sub-menu li:focus{
+  opacity: 1;
+  visibility: visible;
+}
+.main-banner img{
+  height: 80vh;
+  object-fit: cover;
+}
+
+/* footer */
+.footer{
+  background-color: #f9fafb;
+}
+
+@media screen and (max-width: 1200px) {
+  .default-width{
+    width: 100%;
+  }
+  .mo-px-20{padding-left: 20px; padding-right: 20px;}
+}
+@media screen and (max-width: 860px) {
+  .btn-menu-div{
+    display: block;
+    width: 37px;
+    height: 37px;
+    background-color: transparent;
+    border: 1px solid #fff;
+    border-radius: 2px;
+  }
+  .line{
+    width: 70%;
+    height: 1px;
+    background-color: #fff;
+    transition: .3s;
+  }
+  .line-1{
+    top: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .line-2, .line-3{
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+  .line-2{display: none;}
+  .line-4{
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .line-1.active, .line-4.active{
+    opacity: 0;
+  }
+  .line-2.active{
+    display: block;
+    transform: translate(-50%, -50%) rotate(-45deg);
+  }
+  .line-3.active{
+    transform: translate(-50%, -50%) rotate(45deg);
+  }
+  .main-header.scrolled .btn-menu-div{
+    border: 1px solid var(--default-color);
+  }
+  .main-header.scrolled .btn-menu-div .line{
+    background-color: var(--default-color);
+  }
+  .header-logo-img{
+    width: 150px;
+  }
+  .main-menu-list{
+    position: absolute;
+    width: 80%;
+    flex-direction: column;
+    background-color: var(--white-color);
+    align-items: flex-start;
+    justify-content: flex-start;
+    top: 100%;
+    right: -20px;
+    height: calc(100vh - 76px);
+    gap: 0;
+    padding: 20px;
+    opacity: 0;
+    visibility: hidden;
+    transition: .3s;
+  }
+  .main-menu-list.view{
+    opacity: 1;
+    visibility: visible;
+  }
+  .main-menu-list .trans-white-color{
+    color: var(--default-color);
+  }
+  .main-menu-list .main-menu-li{
+    width: 100%;
+  }
+  .main-menu-list .main-menu-a{
+    width: 100%;
+    padding: 15px;
+  }
+  .main-menu-list .sub-menu{
+    position: unset;
+    transform: none;
+    width: 100%;
+    text-align: left;
+    display: none;
+    margin-top: 15px;
+  }
+  .main-menu-list .sub-menu-a{
+    padding: 15px;
+  }
+  .main-menu-li:hover .sub-menu{
+    opacity: 1;
+    visibility: visible;
+    display: block;
+  }
+  .sub-menu.view{
+    opacity: 1;
+    visibility: visible;
+    display: block;
+  }
+  .footer-inner-div{
+    flex-direction: column;
+    gap: 10px;
+  }
+  .footer-inner-div li{
+    margin-bottom: 7px;
+  }
+}
+@media screen and (max-width: 600px) {
+  .header-logo-img{
+    width: 120px;
+  }
+  .btn-lang{
+    padding-top: 20px;
+    padding-bottom: 20px;
+  }
+}
