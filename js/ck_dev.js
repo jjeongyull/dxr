@@ -6,9 +6,10 @@ $(window).on('scroll', function () {
   }
 });
 
-$(document).on('click', '#btn_view_menu', function(){
+$(document).on('click', '#btn_view_menu', function(e){
   $('.line').toggleClass('active');
   $('.main-menu-list').toggleClass('view');
+  e.stopPropagation();
 });
 $(document).on('focus', '.sub-menu li', function(){
   $(this).parent('.sub-menu').css({
@@ -91,4 +92,14 @@ $(document).on('click', '.btn_page_lang', function() {
     newUrl = currentUrl + '?lang=' + lang;
   }
   gotoPage(newUrl, '', '');
+});
+
+// 모바일일때 사이드메뉴 클릭이 아닌 외부를 클릭했을때 사이드메뉴 닫기
+$(document).on('click', function(e) {
+  let sideMenu = $('#side_menu');
+  
+  if (sideMenu.hasClass('view') && !$(e.target).closest('#side_menu').length) {
+    sideMenu.removeClass('view');
+    $('.line').removeClass('active');
+  }
 });
