@@ -126,3 +126,22 @@ $(document).on('click', '.contact-tab', function(){
   initMap(ADDRESS_OBJ[type].map);
   $('#address').text(ADDRESS_OBJ[type].detail);
 });
+
+// 포커스별로 이벤트 실행
+$(document).on('keydown', '.btn_link_page', function(event){
+  if (event.key === 'Enter' || event.keyCode === 13) {
+    $(this).trigger('click');
+  }
+});
+$(document).on('keydown', '.btn_sub_link_page', function(event){
+  if (event.key === 'Enter' || event.keyCode === 13) {
+    event.stopPropagation();
+    event.preventDefault();
+    $(this).trigger('click');
+  }
+});
+$(document).on('keydown', '.contact-tab', function(event){
+  if (event.key === 'Enter' || event.keyCode === 13) {
+    $(this).trigger('click');
+  }
+});
