@@ -28,8 +28,12 @@
   <link rel="stylesheet" href="css/style.css">
 
   <!-- js -->
+  <script src="js/const.js"></script>
   <script src="js/ck_dev.js"></script>
   <script src="js/common.js"></script>
+
+  <!--- 구글 맵 -->
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgztvsQpebphOfRXysWbJmp9hxVavlVRE&callback=initMap"></script>
 
 </head>
 <body>
@@ -40,15 +44,79 @@
   <div class="interface-wrap">
     <div>
       <header class="fixed w-full position-top main-header" id="header"></header>
-      <main class="mb-100">
+      <main class="mb-80">
         <div class="main-banner relative">
-          <img class="block w-full" src="images/main_banner.jpg" alt="메인배너">
+          <img class="block w-full" style="height: 60vh;" src="images/main_banner.jpg" alt="메인배너">
           <div class="absolute position-center w-full text-center">
             <p class="font-30 font-bold white-color line-height-1-5">Contact페이지</p>                                                                                     
           </div>
         </div>
       </main>
-      <section id="content"></section>
+      <section id="content">
+        <!-- contact입력창 -->
+        <div class="default-width ma-auto mb-80 mo-px-20" style="border-bottom: 3px solid #000;">
+          <div class="w-full py-30 mb-30" style="border-bottom: 3px solid #000;">
+            <h2 class="font-bold font-20">문의하기</h2>
+          </div>
+          <div class="w-full">
+            <div class="input-box flex items-center gap-20 mb-30">
+              <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;" for="company_name">기업명</label>
+              <input class="input-text font-14 w-full" type="text" id="company_name" maxlength="100" placeholder="기업명을 입력하세요.">
+            </div>
+            <div class="input-box flex items-center gap-20 mb-30">
+              <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;" for="nation_name">국가</label>
+              <input class="input-text font-14 w-full" type="text" id="nation_name" maxlength="50" placeholder="국가를 입력하세요.">
+            </div>
+            <div class="input-box flex items-center gap-20 mb-30">
+              <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;" for="phone">연락처</label>
+              <input class="input-text font-14 w-full" type="text" id="phone" maxlength="13" placeholder="연락처를 입력하세요.">
+            </div>
+            <div class="input-box flex items-center gap-20 mb-30">
+              <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;" for="email">이메일</label>
+              <input class="input-text font-14 w-full" type="text" id="email" maxlength="100" placeholder="이메일을 입력하세요.">
+            </div>
+            <div class="input-box flex items-start gap-20 mb-30">
+              <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;" for="contact_info">문의내용</label>
+              <textarea class="input-text font-14 w-full" id="contact_info" cols="30" rows="10" placeholder="문의내용을 입력하세요."></textarea>
+            </div>
+            <div class="input-box flex items-start gap-20 mb-30">
+              <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;" for="contact_info">개인정보 수집 이용 동의</label>
+              <textarea class="input-text font-14 w-full" id="contact_info" cols="30" rows="10" placeholder="문의내용을 입력하세요." readonly>
+  수집하는 개인정보의 항목
+  회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
+                              
+  - 수집항목 : 성명,연락처,이메일,희망연봉,이력서 혹은 포트폴리오 
+  개인정보 수집방법 : 상담문의 
+
+  - 개인정보의 수집 및 이용목적
+  회사는 수집한 개인정보를 다음의 목적을 위해 활용합니다.
+              </textarea>
+            </div>
+            <div class="input-box flex items-start gap-20 mb-30">
+              <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;"></label>
+              <div style="display:flex;align-items:center">
+                <input type="checkbox" id="private" width="24px" height="24px" class="css-xs8c74" name="private">
+                <label for="private" color="#717171" class="css-9axq92">개인정보 수집 이용 동의</label>
+              </div>
+            </div>
+            <button class="font-16 py-20 px-35 contact-btn pointer ma-auto block white-color mb-30" id="btn_contact_insert">등록하기</button>
+          </div>
+        </div>
+
+        <!-- 구글 맵 -->
+        <div class="default-width ma-auto mb-80 mo-px-20">
+          <ul class="w-full flex items-center mb-30 mo-flex-column">
+            <li class="pointer w-full text-center contact-tab active font-24 font-bold py-15" data-type="main">HEAD OFFICE / R&D CENTER</li>
+            <li class="pointer w-full text-center contact-tab font-24 font-bold py-15" data-type="sub">BRANCH OFFICE</li>
+          </ul>
+          <div class="w-full">
+            <div id="map" class="w-full mb-15 map-div"></div>
+            <div>
+              <p id="address">경기도 성남시 수정구 창업로40번길 20, 소프트웨어드림센터 A동 B2, 스타트업센터 4-2</p>
+            </div>
+          </div>
+        </div>
+      </section>
     </div>
     <footer class="footer w-full py-40" id="footer">
 

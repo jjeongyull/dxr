@@ -36,6 +36,7 @@ $(document).on('focusout', '.btn-lang', function(){
   });
 });
 
+
 // 페이지 이동
 $(document).on('click', '.btn_link_page', function(){
   let page = $(this).data('page');
@@ -102,4 +103,26 @@ $(document).on('click', function(e) {
     sideMenu.removeClass('view');
     $('.line').removeClass('active');
   }
+});
+
+$(document).on('change', '.css-xs8c74', function(){
+  if($(this).is(':checked')){
+    $(this).removeClass('css-xs8c74');
+    $(this).addClass('css-r13db4');
+  }
+});
+$(document).on('change', '.css-r13db4', function(){
+  if(!$(this).is(':checked')){
+    $(this).removeClass('css-r13db4');
+    $(this).addClass('css-xs8c74');
+  }
+});
+
+// 구글지도 탭
+$(document).on('click', '.contact-tab', function(){
+  $('.contact-tab').removeClass('active');
+  $(this).addClass('active');
+  let type = $(this).data('type');
+  initMap(ADDRESS_OBJ[type].map);
+  $('#address').text(ADDRESS_OBJ[type].detail);
 });

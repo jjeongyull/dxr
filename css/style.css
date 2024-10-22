@@ -71,13 +71,102 @@
   visibility: visible;
 }
 .main-banner img{
-  height: 80vh;
+  height: 100vh;
   object-fit: cover;
 }
 
 /* footer */
 .footer{
   background-color: #f9fafb;
+}
+
+/* contact */
+.input-text{
+  background-color: #f6f7fb;
+  color: #333;
+  text-align: start;
+  padding: 14px 20px;
+  border-radius: 10px;
+  border: none;
+}
+.input-text:focus{
+  outline: none;
+}
+.css-xs8c74 {
+  width: 24px;
+  height: 24px;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  -ms-appearance: none;
+  appearance: none;
+  border: 1px solid #ccc;
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  display: -webkit-box;
+  display: -webkit-flex;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-align-items: center;
+  -webkit-box-align: center;
+  -ms-flex-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  -ms-flex-pack: center;
+  -webkit-justify-content: center;
+  justify-content: center;
+  background-color: white;
+}
+.css-r13db4 {
+  width: 24px;
+  height: 24px;
+  appearance: none;
+  border: 1px solid rgb(204, 204, 204);
+  border-radius: 3px;
+  cursor: pointer;
+  position: relative;
+  display: flex;
+  -webkit-box-align: center;
+  align-items: center;
+  -webkit-box-pack: center;
+  justify-content: center;
+  background-color: black;
+}
+.css-r13db4:checked::after {
+  content: "";
+  position: absolute;
+  width: 6px;
+  height: 12px;
+  border-style: solid;
+  border-color: rgb(255, 255, 255);
+  border-image: initial;
+  border-width: 0px 2px 2px 0px;
+  transform: rotate(45deg);
+}
+.css-r13db4:checked {
+  background-color: rgb(0, 0, 0) !important;
+}
+.css-9axq92 {
+  size: 16px;
+  color: #717171;
+  font-weight: 700;
+  line-height: 1.4;
+  margin: 0 0 0 10px;
+}
+.contact-btn{
+  border: none;
+  border-radius: 7px;
+  background-color: #6b6b6b;
+}
+.contact-btn:hover{
+  background-color: #4e4e4e;
+}
+.map-div{
+  height: 300px;
+}
+.contact-tab.active{
+  color: var(--theme-color);
+  border-bottom: 3px solid var(--theme-color);
 }
 
 @media screen and (max-width: 1200px) {
@@ -193,6 +282,20 @@
   }
   .footer-inner-div li{
     margin-bottom: 7px;
+  }
+  .input-box{
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 10px;
+  }
+  .css-9axq92{
+    font-size: var(--font-size-14);
+  }
+  .contact-tab{
+    font-size: var(--font-size-16);
+  }
+  .mo-flex-column{
+    flex-direction: column;
   }
 }
 @media screen and (max-width: 600px) {
