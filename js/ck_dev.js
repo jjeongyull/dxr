@@ -23,13 +23,13 @@ $(document).on('focusout', '.sub-menu li', function(){
     'visibility': 'hidden'
   });
 });
-$(document).on('focus', '.btn-lang', function(){
+$(document).on('focus', '.btn_page_lang', function(){
   $(this).parent('.lang-menu').css({
     'opacity': 1,
     'visibility': 'visible'
   });
 });
-$(document).on('focusout', '.btn-lang', function(){
+$(document).on('focusout', '.btn_page_lang', function(){
   $(this).parent('.lang-menu').css({
     'opacity': 0,
     'visibility': 'hidden'
@@ -141,6 +141,11 @@ $(document).on('keydown', '.btn_sub_link_page', function(event){
   }
 });
 $(document).on('keydown', '.contact-tab', function(event){
+  if (event.key === 'Enter' || event.keyCode === 13) {
+    $(this).trigger('click');
+  }
+});
+$(document).on('keydown', '.btn_page_lang', function(event){
   if (event.key === 'Enter' || event.keyCode === 13) {
     $(this).trigger('click');
   }
