@@ -33,7 +33,7 @@
   <script src="js/common.js"></script>
 
   <!--- 구글 맵 -->
-  
+  <script async src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDgztvsQpebphOfRXysWbJmp9hxVavlVRE&callback=initMap"></script>
 
 </head>
 <body>
@@ -69,7 +69,7 @@
             </div>
             <div class="input-box flex items-center gap-20 mb-30">
               <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;" for="phone">연락처</label>
-              <input class="input-text font-14 w-full" type="text" id="phone" maxlength="13" placeholder="연락처를 입력하세요.">
+              <input class="input-text font-14 w-full phone-input" type="text" id="phone" maxlength="13" placeholder="연락처를 입력하세요.">
             </div>
             <div class="input-box flex items-center gap-20 mb-30">
               <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;" for="email">이메일</label>
@@ -80,8 +80,8 @@
               <textarea class="input-text font-14 w-full" id="contact_info" cols="30" rows="10" placeholder="문의내용을 입력하세요."></textarea>
             </div>
             <div class="input-box flex items-start gap-20 mb-30">
-              <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;" for="contact_info">개인정보 수집 이용 동의</label>
-              <textarea class="input-text font-14 w-full" id="contact_info" cols="30" rows="10" placeholder="문의내용을 입력하세요." readonly>
+              <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;" for="contact_agree_info">개인정보 수집 이용 동의</label>
+              <textarea class="input-text font-14 w-full" id="contact_agree_info" cols="30" rows="10" placeholder="문의내용을 입력하세요." readonly>
   수집하는 개인정보의 항목
   회사는 회원가입, 상담, 서비스 신청 등등을 위해 아래와 같은 개인정보를 수집하고 있습니다.
                               
@@ -94,7 +94,7 @@
             </div>
             <div class="input-box flex items-start gap-20 mb-30">
               <label class="input-text-label shrink-0 font-14 font-bold" style="width: 150px;"></label>
-              <div style="display:flex;align-items:center">
+              <div style="display:flex;align-items:center" id="private_chk">
                 <input type="checkbox" id="private" width="24px" height="24px" class="css-xs8c74" name="private">
                 <label for="private" color="#717171" class="css-9axq92">개인정보 수집 이용 동의</label>
               </div>
@@ -112,7 +112,7 @@
           <div class="w-full">
             <div id="map" class="w-full mb-15 map-div"></div>
             <div>
-              <p id="address">경기도 성남시 수정구 창업로40번길 20, 소프트웨어드림센터 A동 B2, 스타트업센터 4-2</p>
+              <p class="line-height-1-3" id="address">경기도 성남시 수정구 창업로40번길 20, 소프트웨어드림센터 A동 B2, 스타트업센터 4-2</p>
             </div>
           </div>
         </div>

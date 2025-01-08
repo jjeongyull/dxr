@@ -1,8 +1,40 @@
 $(window).on('scroll', function () {
   if ($(window).scrollTop() > 0) {
-      $('header').addClass('scrolled');
+    $('header').addClass('scrolled');
+    $('.c-logo').css('display', 'block');
+    $('.w-logo').css('display', 'none');
   } else {
-      $('header').removeClass('scrolled');
+    $('header').removeClass('scrolled');
+    $('.c-logo').css('display', 'none');
+    $('.w-logo').css('display', 'block');
+  }
+});
+
+$(document).on("click", ".custom-select-click-area", function() {
+  $(".custom-options").toggleClass("active");
+});
+
+$(document).on("click", ".custom-option", function() {
+  const text = $(this).text();
+  let value = $(this).data('value');
+  $(".custom-select").text(text);
+  $('#select_value').val(value);
+  $(".custom-options").removeClass("active");
+  if (value === "all") {
+    table.setMaxPage(1); // 전체 보기를 위해 페이지를 1로 설정
+    table.setPageSize(table.getDataCount()); // 전체 데이터 크기로 페이지 크기 설정
+  } else {
+    table.setMaxPage(false); // 페이지 수 제한 해제
+    table.setPageSize(parseInt(value)); // 선택된 페이지 크기로 변경
+  }
+});
+
+$(document).on("click", function(event) {
+  if (!$(".custom-select-wrapper").is(event.target) && $(".custom-select-wrapper").has(event.target).length === 0) {
+    $(".custom-options").removeClass("active");
+  }
+  if (!$(".custom-select-check-wrap").is(event.target) && $(".custom-select-check-wrap").has(event.target).length === 0) {
+    $(".checkbox-dropdown").hide();
   }
 });
 
@@ -148,5 +180,90 @@ $(document).on('keydown', '.contact-tab', function(event){
 $(document).on('keydown', '.btn_page_lang', function(event){
   if (event.key === 'Enter' || event.keyCode === 13) {
     $(this).trigger('click');
+  }
+});
+
+// contact 작성시
+$(document).on('click', '#btn_contact_insert', function(){
+  $('#private_chk').removeClass('not');
+  $('.input-text').removeClass('not');
+  let boolean = true;
+  let focusBoolean = false;
+  let company_name = $('#company_name').val();
+  let nation_name = $('#nation_name').val();
+  let phone = $('#phone').val();
+  let email = $('#email').val();
+  let contact_info = $('#contact_info').val();
+  let private = $('#private').is(':checked');
+
+  if(isEmpty(company_name)){
+    $('#company_name').addClass('not');
+    $('#company_name').focus();
+    focusBoolean = true;
+    boolean = false;
+  }
+  if(isEmpty(nation_name)){
+    $('#nation_name').addClass('not');
+    if(!focusBoolean){
+      $('#nation_name').focus();
+      focusBoolean = true;
+    }
+    boolean = false;
+  }
+  if(isEmpty(phone)){
+    $('#phone').addClass('not');
+    if(!focusBoolean){
+      $('#phone').focus();
+      focusBoolean = true;
+    }
+    boolean = false;
+  }
+  if(isEmpty(email)){
+    $('#email').addClass('not');
+    if(!focusBoolean){
+      $('#email').focus();
+      focusBoolean = true;
+    }
+    boolean = false;
+  }
+  if(!validateEmail(email)){
+    $('#email').addClass('not');
+    if(!focusBoolean){
+      $('#email').focus();
+      focusBoolean = true;
+    }
+    boolean = false;
+  }
+  if(isEmpty(contact_info)){
+    $('#contact_info').addClass('not');
+    if(!focusBoolean){
+      $('#contact_info').focus();
+      focusBoolean = true;
+    }
+    boolean = false;
+  }
+  if(!private){
+    $('#private_chk').addClass('not');
+    boolean = false;
+  }
+  if(!boolean){return false;}
+
+  alert('준비 중 입니다.');
+});
+
+$(document).on('input', '.phone-input', function() {
+  // 입력 필드에 숫자만 남기고 나머지는 제거
+  let inputVal = $(this).val().replace(/[^0-9]/g, '');
+
+  // 하이픈을 추가하는 로직
+  if (inputVal.length < 4) {
+    // 010처럼 3자리까지만 입력된 경우
+    $(this).val(inputVal);
+  } else if (inputVal.length < 8) {
+    // 010-1234처럼 7자리까지만 입력된 경우
+    $(this).val(inputVal.replace(/(\d{3})(\d{1,4})/, '$1-$2'));
+  } else {
+    // 010-1234-5678처럼 11자리까지 입력된 경우
+    $(this).val(inputVal.replace(/(\d{3})(\d{4})(\d{1,4})/, '$1-$2-$3'));
   }
 });

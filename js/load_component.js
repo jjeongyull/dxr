@@ -1,6 +1,11 @@
-$(function(){
-  $('#header').load('component/header.html');
-  $('#footer').load('component/footer.html');
+$(async function(){
+  await loadComponent('#header', 'component/header.html');
+  await loadComponent('#footer', 'component/footer.html');
+
+  let lang = getUrlValue("lang");
+  if(lang === 'en'){
+    changeLang(PAGE);
+  }
 });
 
 function initMap(address="") {
