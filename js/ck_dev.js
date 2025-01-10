@@ -21,11 +21,10 @@ $(document).on("click", ".custom-option", function() {
   $('#select_value').val(value);
   $(".custom-options").removeClass("active");
   if (value === "all") {
-    table.setMaxPage(1); // 전체 보기를 위해 페이지를 1로 설정
-    table.setPageSize(table.getDataCount()); // 전체 데이터 크기로 페이지 크기 설정
+   $('.use-card').css('display', 'block');
   } else {
-    table.setMaxPage(false); // 페이지 수 제한 해제
-    table.setPageSize(parseInt(value)); // 선택된 페이지 크기로 변경
+    $('.use-card').css('display', 'none');
+    $(`.use-card[data-type=${value}]`).css('display', 'block');
   }
 });
 
@@ -248,7 +247,32 @@ $(document).on('click', '#btn_contact_insert', function(){
   }
   if(!boolean){return false;}
 
-  alert('준비 중 입니다.');
+  // alert('준비 중 입니다.');
+
+  const formData = {
+    company_name: company_name,
+    nation_name: nation_name,
+    phone: phone,
+    email: email,
+    contact_info: contact_info,
+  };
+  fetch('https://script.google.com/macros/s/AKfycbwINkAb0pszyB8Lg6UsbUYasprEZC-n28QNtqnBjUG_iu-vxWe7wTq7BPEHzOp62fFk/exec', { // Web App URL
+  method: 'POST',
+  headers: { 'Content-Type': 'application/json' },
+  body: JSON.stringify(formData),
+})
+  .then(response => response.json())
+  .then(data => {
+    if (data.success) {
+      alert('문의가 성공적으로 전송되었습니다.');
+    } else {
+      alert('오류 발생: ' + data.error);
+    }
+  })
+  .catch(error => {
+    console.error('Error:', error);
+    alert('네트워크 오류가 발생했습니다.');
+  });
 });
 
 $(document).on('input', '.phone-input', function() {
