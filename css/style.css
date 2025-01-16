@@ -27,7 +27,7 @@
   width: 140px;
 }
 .sub-menu{
-  top: 100%;
+  top: 115%;
   left: 50%;
   transform: translateX(-50%);
   width: 140px;
@@ -366,7 +366,12 @@
   color: var(--theme-color);
   border-bottom: 3px solid var(--theme-color);
 }
-
+.gradiant-color{
+  background: linear-gradient(to left, #415bff, #76c5b1);
+  -webkit-text-fill-color: transparent;
+  -webkit-background-clip: text;
+  display: inline-block;
+}
 @media screen and (max-width: 1440px) {
   .default-width{
     width: 100%;
@@ -536,6 +541,15 @@
   .mo-font-20{
     font-size: 20px;
   }
+  .mo-font-40{
+    font-size: 40px;
+  }
+  .mo-font-30{
+    font-size: 30px;
+  }
+  .mo-font-25{
+    font-size: 25px;
+  }
   .mo-font-14{
     font-size: 14px;
   }
@@ -567,6 +581,10 @@
   .mo-grid-2{
     display: grid;
     grid-template-columns: repeat(2, 1fr);
+  }
+  .mo-grid-1{
+    display: grid;
+    grid-template-columns: repeat(1, 1fr);
   }
   .mo-ma-auto{
     margin: 0 auto;

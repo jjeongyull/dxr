@@ -30,9 +30,10 @@
   <!-- js -->
   <script src="js/ck_dev.js"></script>
   <script src="js/common.js"></script>
+  <script src="js/lang.js"></script>
 
 </head>
-<body>
+<body style="background-color: #000;">
   <div class="skip">
     <a href="#content" tabindex="0">본문바로가기</a>
   </div>
@@ -42,19 +43,78 @@
       <header class="fixed w-full position-top main-header" id="header"></header>
       <main class="mb-100">
         <div class="main-banner relative">
-          <img class="block w-full" src="images/main_banner.jpg" alt="메인배너">
+          <img class="block w-full" style="height: 60vh;" src="images/header_sub02.jpg" alt="메인배너">
           <div class="absolute position-center w-full text-center">
-            <p class="font-30 font-bold white-color line-height-1-5">Tech페이지</p>                                                                                     
+            <p class="font-50 font-bold white-color line-height-1-5 font-montserrat mo-font-40">TECH</p>                                                                                     
           </div>
         </div>
       </main>
-      <section></section>
+
+      <section class="mb-120 default-width ma-auto mo-mb-70 mo-px-20 white-color">
+        <h3 class="font-40 font-bold mb-30 font-montserrat mo-font-30 gradiant-color" id="tech_1">협동로봇 비전검사</h3>
+        <div class="w-full grid items-center grid-view-3 gap-20 mb-60 mo-grid-1">
+          <div class="grid-span-2">
+            <p class="font-24 mb-20 font-bold mo-font-18" id="tech_2">이미지 기반 AI 모델을 통한 물체 인지</p>
+            <p class="mo-font-16 font-20" id="tech_3">- 작업 환경, 물체 인식 및 판단, 장면 그래프 생성 및 이해</p>
+          </div>
+          <img class="grid-span-1 w-full" src="images/CK_tc02730000712.jpg" alt="">
+        </div>
+        <div class="w-full grid items-center grid-view-3 gap-20 mb-60 mo-grid-1">
+          <div class="grid-span-2">
+            <p class="font-24 mb-20 font-bold mo-font-18" id="tech_4">동적 경로 생성 기술 개발</p>
+            <p id="tech_5" class="mb-10 mo-font-16 font-20">- 상황 변화에 따른 인지 정보 취득, 동적 로봇 경로 생성</p>
+            <p id="tech_6" class="mb-10 mo-font-16 font-20">- 6-dof 센서 기반 기준경로 생성</p>
+            <p id="tech_7" class="mo-font-16 font-20">- 경로 재생성, 궤적 최적화</p>
+          </div>
+          <img class="grid-span-1 w-full" src="images/CK_tc02730000712.jpg" alt="">
+        </div>
+        <div class="w-full">
+          <p class="font-24 mb-20 font-bold mo-font-18" id="tech_8">동적 물체 비전검사 (컨베이어 트래킹)</p>
+          <p id="tech_9" class="mb-20 mo-font-16 font-20">- 적 물체 비전검사 포인트 추출, 로봇 촬상 포인트 동적 최적화 경로 생성</p>
+          <div class="grid items-center grid-view-2 gap-20 mo-grid-1">
+            <img class="grid-span-1 w-full" src="images/CK_tc02730000712.jpg" alt="">
+            <img class="grid-span-1 w-full" src="images/CK_tc02730000712.jpg" alt="">
+          </div>
+        </div>
+      </section>
+
+      <section class="mb-120 default-width ma-auto mo-mb-70 mo-px-20 white-color">
+        <h3 class="font-40 font-bold mb-30 font-montserrat mo-font-30 gradiant-color" id="tech_10">AI 비전검사 내용</h3>
+        <div class="w-full grid items-center grid-view-3 gap-20 mb-60 mo-grid-1">
+          <div class="grid-span-2">
+            <p class="font-24 mb-20 font-bold mo-font-18" id="tech_11">페이크-샷 러닝, 가성 불량 감소</p>
+            <p class="mo-font-16 font-20" id="tech_12">- 가상 불량데이터 생성 및 페이크-샷 AI 모델 생성</p>
+          </div>
+          <img class="grid-span-1 w-full" src="images/CK_tc02730000712.jpg" alt="">
+        </div>
+        <div class="w-full grid items-center grid-view-3 gap-20 mb-60 mo-grid-1">
+          <div class="grid-span-2">
+            <p class="font-24 mb-20 font-bold mo-font-18" id="tech_13">물체 6D 자세 인식</p>
+            <p id="tech_14" class="mb-10 mo-font-16 font-20">- 물체 3D CAD 정보를 활용한 6D 자세 추정</p>
+            <p id="tech_15" class="mb-10 mo-font-16 font-20">- 동적 물체 이동 경로 추정 및 예측</p>
+            <p id="tech_16" class="mo-font-16 font-20">- 로봇 비전 좌표 변환, 로봇 기준 물체 정보 계산</p>
+          </div>
+          <img class="grid-span-1 w-full" src="images/CK_tc02730000712.jpg" alt="">
+        </div>
+        <div class="w-full">
+          <p class="font-24 mb-20 font-bold mo-font-18" id="tech_17">수치검사, 외관검사</p>
+          <p id="tech_18" class="mb-10 mo-font-16 font-20">- 제품 마감, 정렬 불량 (제품 크기, 모양, 정렬 각도 등)</p>
+          <p id="tech_19" class="mb-20 mo-font-16 font-20">- 제품 오염, 색상 불량 (긁힘, 이물질, 균열, 균일색상검사 등)</p>
+          <div class="grid items-center grid-view-2 gap-20 mo-grid-1">
+            <img class="grid-span-1 w-full" src="images/CK_tc02730000712.jpg" alt="">
+            <img class="grid-span-1 w-full" src="images/CK_tc02730000712.jpg" alt="">
+          </div>
+        </div>
+      </section>
+
     </div>
     <footer class="footer w-full py-40" id="footer">
 
     </footer>
   </div>
-  
+  <script>
+    const PAGE = "tech";
+  </script>
   <script src="js/load_component.js"></script>
 </body>
 </html>

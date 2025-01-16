@@ -1,3 +1,4 @@
+@import url('https://cdn.rawgit.com/moonspam/NanumSquare/master/nanumsquare.css');
 :root{
   /* color */
   --theme-color: #25afb4;
@@ -14,6 +15,8 @@
 
   --noto-sans-font: "Noto Sans KR", sans-serif;
   --nanum-gothic-font: "Nanum Gothic", sans-serif;
+  --montserrat-font: 'Montserrat',-apple-system,'sans-serif';
+  --nanumsquare-font: 'nanumsquare';
   --pretandard-font: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif;
 
   /* 폰트사이즈 */
@@ -30,9 +33,14 @@
 }
 *, body{
   /* font-family: Pretendard, -apple-system, BlinkMacSystemFont, system-ui, Roboto, 'Helvetica Neue', 'Segoe UI', 'Apple SD Gothic Neo', 'Noto Sans KR', 'Malgun Gothic', sans-serif; */
-  font-family: var(--noto-sans-font);
+  font-family: var(--nanumsquare-font);
   box-sizing: border-box;
 }
+.font-nanum{font-family: var(--nanum-gothic-font);}
+.font-noto{font-family: var(--noto-sans-font);}
+.font-montserrat{font-family: var(--montserrat-font);}
+.font-pretandard{font-family: var(--pretandard-font);}
+.font-nanumsquare{font-family: var(--nanumsquare-font);}
 button, input, optgroup, select, textarea {
   font-family: inherit;
   font-feature-settings: inherit;
