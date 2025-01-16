@@ -1,5 +1,11 @@
 const LANG_EN = {
   component: {
+    h_1: 'Vision',
+    h_2: 'Robot',
+    h_3: 'Robot Application',
+    h_4: 'Vision Application',
+    h_5: 'History & Team Culture',
+    h_6: 'korean',
     f_1: 'CEO',
     f_2: 'EunHo Kim',
     f_3: 'HEAD OFFICE',
